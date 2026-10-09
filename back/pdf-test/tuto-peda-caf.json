@@ -1,0 +1,92 @@
+{
+  "source": "tuto-peda-caf.pdf",
+  "pageCount": 1,
+  "content": [],
+  "sections": [
+    {
+      "level": 1,
+      "title": "Se connecter à son compte CAF",
+      "page": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "style": "lead",
+          "text": "Fiche mémo — La Formation pour tous"
+        }
+      ],
+      "sections": [
+        {
+          "level": 2,
+          "title": "L'essentiel",
+          "page": 1,
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Aller sur le site de la CAF et cliquer sur Mon Compte.",
+                "Saisir les 13 chiffres de son numéro de sécurité sociale.",
+                "Entrer son mot de passe puis cliquer sur Se connecter.",
+                "Accéder à la page d’accueil du compte.",
+                "Ouvrir les rubriques pour voir ses paiements et ses démarches."
+              ]
+            }
+          ],
+          "sections": []
+        },
+        {
+          "level": 2,
+          "title": "À prévoir",
+          "page": 1,
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Avoir son numéro de sécurité sociale à portée de main.",
+                "Connaître son mot de passe CAF ou pouvoir le récupérer.",
+                "Être dans un endroit calme pour saisir ses informations."
+              ]
+            }
+          ],
+          "sections": []
+        },
+        {
+          "level": 2,
+          "title": "Points de vigilance",
+          "page": 1,
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Vérifier les chiffres du numéro de sécurité sociale avant de valider.",
+                "Ne pas entrer son mot de passe sur un ordinateur partagé non sécurisé.",
+                "Se déconnecter après consultation surtout sur un poste public."
+              ]
+            }
+          ],
+          "sections": []
+        },
+        {
+          "level": 2,
+          "title": "À comprendre",
+          "page": 1,
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Mon Compte = espace en ligne pour suivre son dossier CAF.",
+                "numero de securite sociale = identifiant utilisé pour se connecter.",
+                "mot de passe = code secret pour protéger l’accès au compte."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "style": "small",
+              "text": "Vidéo par La Caf - Officiel"
+            }
+          ],
+          "sections": []
+        }
+      ]
+    }
+  ]
+}
