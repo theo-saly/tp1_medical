@@ -2,7 +2,6 @@
 
 import {
   ArrowLeft,
-  ArrowRight,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -174,8 +173,6 @@ export default function Dashboard() {
       limit: String(PAGE_SIZE),
     });
     if (deferredQuery) parameters.set("q", deferredQuery);
-    setIsLoading(true);
-    setApiError("");
 
     void fetch(`${API_BASE}/fiches?${parameters}`, {
       signal: controller.signal,
@@ -185,7 +182,10 @@ export default function Dashboard() {
         if (!response.ok) throw new Error(await readError(response));
         return (await response.json()) as FicheList;
       })
-      .then((data) => setList(data))
+      .then((data) => {
+        setList(data);
+        setApiError("");
+      })
       .catch((error: unknown) => {
         if (error instanceof Error && error.name === "AbortError") return;
         setList(null);
@@ -205,14 +205,8 @@ export default function Dashboard() {
   }, [deferredQuery, page, refreshKey]);
 
   useEffect(() => {
-    if (!selectedId) {
-      setFiche(null);
-      return;
-    }
+    if (!selectedId) return;
     const controller = new AbortController();
-    setFiche(null);
-    setDetailError("");
-    setIsDetailLoading(true);
 
     void fetch(`${API_BASE}/fiches/${encodeURIComponent(selectedId)}`, {
       signal: controller.signal,
@@ -293,6 +287,18 @@ export default function Dashboard() {
     event.preventDefault();
     setIsDragging(false);
     void uploadPdf(event.dataTransfer.files[0]);
+  }
+
+  function openFiche(id: string) {
+    setFiche(null);
+    setDetailError("");
+    setIsDetailLoading(true);
+    setSelectedId(id);
+  }
+
+  function changePage(nextPage: number) {
+    setIsLoading(true);
+    setPage(nextPage);
   }
 
   const shellTheme = [
@@ -678,7 +684,7 @@ export default function Dashboard() {
                       </div>
                       <button
                         className="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 self-end rounded-lg border border-accent px-3.5 text-sm font-semibold text-accent transition hover:bg-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:self-auto"
-                        onClick={() => setSelectedId(item.id)}
+                        onClick={() => openFiche(item.id)}
                         type="button"
                       >
                         <Eye aria-hidden="true" size={17} />
@@ -713,7 +719,7 @@ export default function Dashboard() {
                   <button
                     className="pagination-button"
                     disabled={page <= 1 || isLoading}
-                    onClick={() => setPage((value) => Math.max(1, value - 1))}
+                    onClick={() => changePage(Math.max(1, page - 1))}
                     type="button"
                   >
                     <ChevronLeft aria-hidden="true" size={17} />
