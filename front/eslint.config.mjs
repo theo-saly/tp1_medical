@@ -12,8 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Back Node/Express : hors du périmètre du lint Next.
-    "back/**",
   ]),
 ]);
 
